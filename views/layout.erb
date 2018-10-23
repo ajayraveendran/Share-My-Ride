@@ -7,6 +7,18 @@
 </head>
 <body>
 
+  <% if logged_in? %>
+  logged in as <a href="/user/<%= current_user.id %>"><%= current_user.username %></a>
+  <form action="/session" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>logout</button>
+  </form>
+  <% else %>
+    <a href="/login">login/Sign up</a>    
+  <% end %>
+  
+  <a href="/">Home</a>    
+
   <%= yield %>
 
 </body>
