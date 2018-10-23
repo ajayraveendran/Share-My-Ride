@@ -1,0 +1,26 @@
+<h2>Update Bike Details</h2>
+
+<form action="/bike/<%= @bike.id%>" method="post">
+
+  <label for="">Update Year of manufacture</label>
+  <input name="year" type="text" value="<%= @bike.year%>">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="">Update Make</label>
+  <input name="make" type="text" value="<%= @bike.make%>">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="">Update Model</label>
+  <input name="model" type="text" value="<%= @bike.model%>">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="">Update LAMS approved status</label>
+  <input name="lams" type="text" value="<%= @bike.lams%>">
+  <input type="hidden" name="_method" value="put">
+  
+  <label for="">Update Image</label>
+  <input name="image_url" type="text" value="<%= @bike.image_url%>">
+  <input type="hidden" name="_method" value="put">
+
+  <button>Update</button>
+</form>

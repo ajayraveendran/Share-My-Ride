@@ -19,20 +19,22 @@ helpers do
   end
   
   def logged_in?
-    !!current_user #if current user exists then returns true (not truthey) as def current user returns the user id, 
-    # if current user doesn't exist then as double negation returns boolean, in this case it'll be false (not falsey).
+    !!current_user #if current user exists then returns true (not truthey) 
+    # as def current user returns the user id, 
+    # if current user doesn't exist then as double negation returns boolean, 
+    # in this case it'll be false (not falsey).
   end
   
 end
 
 get '/' do
   @bikes = Bike.all #almost an array of hashes..
-  erb :index
+  erb :"/index"
 end
 
 
 get '/login' do
-  erb :login
+  erb :"/login"
 end
 
 post '/session' do
@@ -41,7 +43,7 @@ post '/session' do
     session[:user_id] = user.id
     redirect to('/')
   else
-    erb :login
+    erb :"/login"
   end
 end
 
@@ -50,10 +52,12 @@ delete '/session' do
   redirect to('/')
 end
 
-get '/user/new' do
-  erb :new
-end
+# USER routes
 
+get '/user/new' do
+  erb :"users/new"
+end
+#create user
 post '/user' do
   user = User.new
   user.name = params[:name]
@@ -65,18 +69,18 @@ post '/user' do
   user.save
   redirect to('/login')
 end
-
+# read user
 get '/user/:id' do
   @user = User.find(params[:id])
   @owned_bikes = @user.owned_bikes
-  erb :show
+  erb :"users/show"
 end
-
+# show edit page
 get '/user/:id/edit' do
   @user = User.find(params[:id])
-  erb :edit
+  erb :"users/edit"
 end
-
+# edit user
 put '/user/:id' do
   user = User.find(params[:id])
   user.name = params[:name]
@@ -86,25 +90,56 @@ put '/user/:id' do
   user.save
   redirect to("/user/#{params[:id]}")
 end
-
+# delete user
 delete '/user/:id' do
   user = User.find(params[:id])
   user.destroy
   redirect to('/')
 end
 
+#BIKE routes
 get '/bike/new' do
-  # erb :new
+  erb :"bikes/new"
 end
-
+#create bike
 post '/bike' do
   bike = Bike.new
   bike.owner_id = current_user.id
+  bike.year = params[:year]
   bike.make = params[:make]
   bike.model = params[:model]
   bike.lams = params[:lams]
   bike.save
-  redirect to("/user/#{current_user.id})
+  redirect to("/user/#{current_user.id}")
+end
+#read bike
+get '/bike/:id' do
+  @bike = Bike.find(params[:id])
+  @owner = User.find(@bike.owner_id)
+  erb :"bikes/show"
+end
+#show edit page
+get '/bike/:id/edit' do
+  @bike = Bike.find(params[:id])
+  erb :"bikes/edit"
+end
+#update bike
+put '/bike/:id' do
+  bike = Bike.find(params[:id])
+  bike.year = params[:year]
+  bike.make = params[:make]
+  bike.model = params[:model]
+  bike.lams = params[:lams]
+  bike.image_url = params[:image_url]
+  bike.save
+  redirect to("/bike/#{params[:id]}")
+end
+#delete bike
+delete '/bike/:id' do
+  bike = Bike.find(params[:id])
+  bike.destroy
+  redirect to("/user/#{current_user.id}")
 end
 
+# BOOKING routes
 

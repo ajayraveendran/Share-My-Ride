@@ -1,0 +1,14 @@
+<h2><%=@owner.username %>'s <%= @bike.year %> <%= @bike.make %> <%= @bike.model %> </h2>
+
+<a href="/bike/<%= @bike.id %>/edit">Edit Bike details</a>
+
+<%= @bike.year %> <%= @bike.make %> <%= @bike.model %>
+
+<p>LAMS Approved: <%= @bike.lams %></p>
+
+<img src="<%= @bike.image_url %>" alt="Bike pics">
+
+<form action="/bike/<%= @bike.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>Delete Bike</button>
+</form>
