@@ -151,12 +151,15 @@ get '/booking/bike/:bike_id' do
   @bike = Bike.find(params[:bike_id])
   @owner = User.find(@bike.owner_id)
   @today = Date.today
+  @today_plus_1_year = @today + 365
   erb :"bookings/new"
 end
 
 # read booking
 get '/booking/:id' do
   @booking = Booking.find(params[:id])
+  @bike = Bike.find(@booking.bike_id)
+  @owner = User.find(@bike.owner_id)
   erb :"bookings/show"
 end
 
@@ -170,3 +173,25 @@ post '/booking' do
   redirect to("/user/#{current_user.id}")
 end
 
+#show edit page
+get '/booking/:id/edit' do
+  @booking = Booking.find(params[:id])
+  erb :"bookings/edit"
+end
+
+# update booking
+put '/booking/:id' do
+  @today = Date.today.iso8601
+  @today_plus_1_year = (Date.today + 365).iso8601
+  booking = Booking.find(params[:id])
+  booking.booking_start = params[:booking_start]
+  booking.save
+  redirect to("/booking/#{params[:id]}")
+end
+
+#delete bike
+delete '/booking/:id' do
+  booking = Booking.find(params[:id])
+  booking.destroy
+  redirect to("/user/#{current_user.id}")
+end

@@ -1,0 +1,8 @@
+<h2>Update Booking Date</h2>
+
+<p>Current booking date: <strong><%= @booking.booking_start.strftime('%d ' '%B ' '%y')%></strong></p>
+<form action="/booking/<%= @booking.id%>" method="post">
+  <input name="booking_start" type="date" value="<%=@booking.booking_start%>"/>
+  <input type="hidden" name="_method" value="put">
+  <button>Update</button>
+</form>

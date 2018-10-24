@@ -1,7 +1,7 @@
 <h1>Book <%=@owner.username %>'s <%= @bike.year %> <%= @bike.make %> <%= @bike.model %></h1>
 
 <form action="/booking" method="post">
-  <input name="booking_start" type="date" value="" min= "<% @today %>" max="<% @today + 365 %>"/>
+  <input name="booking_start" type="date" value="<%=booking.booking_start%>"/>
   <input name="bike_id" type="hidden"  value="<%= @bike.id %>">
   <button>Book bike</button>
 </form>

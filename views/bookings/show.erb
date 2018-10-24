@@ -1,1 +1,18 @@
-<h1>hELLO</h1>
+<h2><%= @bike.year %> <%= @bike.make %> <%= @bike.model %> </h2>
+
+<img src="<%= @bike.image_url %>" alt="Bike pics">
+
+<h3>Booked for: <%= @booking.booking_start.strftime('%d ' '%B ' '%y') %></h3>
+
+<p>Owner: <%=@owner.username %></p>
+
+<p>LAMS Approved: <%= @bike.lams %></p>
+
+<p>Daily Rate: $<%= @bike.daily_rate %></p>
+
+<a href="/booking/<%= @booking.id %>/edit">Edit Booking Date</a>
+
+<form action="/booking/<%= @booking.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>Delete Booking</button>
+</form>
