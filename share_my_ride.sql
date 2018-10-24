@@ -28,3 +28,4 @@ CREATE TABLE bookings(
   FOREIGN KEY (seller_id) REFERENCES users (id) ON DELETE CASCADE,
   FOREIGN KEY (bike_id) REFERENCES bikes (id) ON DELETE CASCADE
 );
+  -- daily_rate NUMERIC(7,2)

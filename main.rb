@@ -9,6 +9,7 @@ require_relative 'db_config'
 require_relative 'models/user'
 require_relative 'models/bike'
 require_relative 'models/booking'
+require 'date'
 
 enable :sessions
 
@@ -73,6 +74,7 @@ end
 get '/user/:id' do
   @user = User.find(params[:id])
   @owned_bikes = @user.owned_bikes
+  @user_bookings = Booking.where(renter_id: @user)
   erb :"users/show"
 end
 # show edit page
@@ -109,6 +111,8 @@ post '/bike' do
   bike.make = params[:make]
   bike.model = params[:model]
   bike.lams = params[:lams]
+  bike.image_url = params[:image_url]
+  bike.daily_rate = params[:daily_rate]
   bike.save
   redirect to("/user/#{current_user.id}")
 end
@@ -131,6 +135,7 @@ put '/bike/:id' do
   bike.model = params[:model]
   bike.lams = params[:lams]
   bike.image_url = params[:image_url]
+  bike.daily_rate = params[:daily_rate]
   bike.save
   redirect to("/bike/#{params[:id]}")
 end
@@ -141,5 +146,27 @@ delete '/bike/:id' do
   redirect to("/user/#{current_user.id}")
 end
 
-# BOOKING routes
+#link to booking current bike on page
+get '/booking/bike/:bike_id' do
+  @bike = Bike.find(params[:bike_id])
+  @owner = User.find(@bike.owner_id)
+  @today = Date.today
+  erb :"bookings/new"
+end
+
+# read booking
+get '/booking/:id' do
+  @booking = Booking.find(params[:id])
+  erb :"bookings/show"
+end
+
+# create booking
+post '/booking' do
+  booking = Booking.new
+  booking.renter_id = current_user.id
+  booking.bike_id = params[:bike_id]
+  booking.booking_start = params[:booking_start]
+  booking.save
+  redirect to("/user/#{current_user.id}")
+end
 

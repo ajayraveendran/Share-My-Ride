@@ -6,9 +6,18 @@
 
 <p>LAMS Approved: <%= @bike.lams %></p>
 
+<p>Daily Rate: $<%= @bike.daily_rate %></p>
+
 <img src="<%= @bike.image_url %>" alt="Bike pics">
 
+<% if current_user == nil %>
+  <a href="/login">Log in to book this Bike</a>
+<% elsif current_user.id == @owner.id %>
 <form action="/bike/<%= @bike.id%>" method="post">
   <input type="hidden" name="_method" value="delete">
   <button>Delete Bike</button>
 </form>
+<% else %>
+  <a href="/booking/bike/<%= @bike.id %>">Book this Bike</a>
+<% end %>
+

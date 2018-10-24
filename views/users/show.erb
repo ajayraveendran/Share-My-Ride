@@ -12,10 +12,23 @@
     </a>
   </p>
   <img src="<%= bike.image_url %>" alt="Bike pics">
+    
+  <a href="/booking/new">View Bookings</a>
 <% end %>
 
 <h3>Rented Bikes</h3>
-<a href="">Add/Edit/Remove Booking</a>
+
+<% @user_bookings.each do |booking|%>
+  <% bike = Bike.find_by(id: booking.bike_id) %>
+  <p>Booked for <%= booking.booking_start.strftime('%d ' '%B ' '%y')%></p>
+  <p>
+    <a href="/booking/<%= booking.id %>">
+      <%= bike.year %> <%= bike.make %> <%= bike.model %>
+    </a>
+    <img src="<%= bike.image_url %>" alt="Bike pics">
+
+  </p>
+<% end %>
 
 
 
