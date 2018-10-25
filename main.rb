@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'pry'
 
 # has_many :owned_bikes, class_name: 'Bike', foreign_key: 'owner_id'
