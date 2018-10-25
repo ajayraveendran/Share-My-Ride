@@ -29,7 +29,7 @@ helpers do
 end
 
 get '/' do
-  @bikes = Bike.all #almost an array of hashes..
+  
   erb :"/index"
 end
 
@@ -100,6 +100,12 @@ delete '/user/:id' do
 end
 
 #BIKE routes
+
+get '/bike' do
+  @bikes = Bike.all
+  erb :"/bikes/index"
+end
+
 get '/bike/new' do
   erb :"bikes/new"
 end
@@ -150,12 +156,19 @@ end
 get '/booking/bike/:bike_id' do
   @bike = Bike.find(params[:bike_id])
   @owner = User.find(@bike.owner_id)
-  @today = Date.today
-  @today_plus_1_year = @today + 365
+  # @today = Date.today
+  # @today_plus_1_year = @today + 365
   erb :"bookings/new"
 end
 
-# read booking
+# read all bookings for 
+get '/bike/:bike_id/booking' do
+  @bike = Bike.find(params[:bike_id])
+  @bookings = Booking.where(bike_id: @bike.id)
+  erb :"bookings/index"
+end
+
+# read individual booking
 get '/booking/:id' do
   @booking = Booking.find(params[:id])
   @bike = Bike.find(@booking.bike_id)

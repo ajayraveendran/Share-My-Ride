@@ -1,0 +1,13 @@
+<h2>Rentals for your <%= @bike.year %> <%= @bike.make %> <%= @bike.model %></h2>
+
+<% @bookings.each do |booking|%>
+  <% renter = User.find(booking.renter_id)%>
+  <div>
+    <p>Day booked: <%= booking.booking_start.strftime('%d ' '%B ' '%y') %></p>
+    <p>Renter: <%= renter.name %></p>
+    <p>Renter email: <%= renter.email %></p>
+    <p>Renter dob: <%= renter.dob.strftime('%d ' '%B ' '%y') %></p>
+  </div>
+<% end %>
+
+<a href="/bike/<%= @bike.id%>">Back to bike details</a>

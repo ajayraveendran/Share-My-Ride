@@ -1,0 +1,12 @@
+<h1>Bikes available to rent</h1>
+
+<% @bikes.each do |bike|%>
+  <p>
+    <a href="/bike/<%= bike.id%>">
+      <%= bike.year %> <%= bike.make %> <%= bike.model %>
+    </a>
+  </p>
+   <p><%= bike.owner.suburb %></p>
+  <img src="<%= bike.image_url %>" alt="Bike pics">
+
+<% end %>

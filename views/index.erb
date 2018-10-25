@@ -1,12 +1,9 @@
-<h1>Bikes available to rent</h1>
+<body>
+  <img src="/images/hero-img cropped copy.jpg" alt="hero img">
 
-<% @bikes.each do |bike|%>
-  <p>
-    <a href="/bike/<%= bike.id%>">
-      <%= bike.year %> <%= bike.make %> <%= bike.model %>
-    </a>
-  </p>
-   <p><%= bike.owner.suburb %></p>
-  <img src="<%= bike.image_url %>" alt="Bike pics">
+  <article class="home-option-buttons">
+    <a class="home-borrow-btn"href="">Borrow a bike</a>
+  </article>
+  
+</body>
 
-<% end %>

@@ -13,10 +13,13 @@
 <% if current_user == nil %>
   <a href="/login">Log in to book this Bike</a>
 <% elsif current_user.id == @owner.id %>
-<form action="/bike/<%= @bike.id%>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button>Delete Bike</button>
-</form>
+  <a href="/bike/<%= @bike.id%>/booking">View Bookings</a>
+
+  <form action="/bike/<%= @bike.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete Bike</button>
+  </form>
+  <a href="/user/<%= current_user.id %>">Back to Garage</a>
 <% else %>
   <a href="/booking/bike/<%= @bike.id %>">Book this Bike</a>
 <% end %>

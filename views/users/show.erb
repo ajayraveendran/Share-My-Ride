@@ -1,6 +1,7 @@
-<h2><%=@user.username %>'s Garage</h2>
 
 <a href="/user/<%= @user.id %>/edit">Update account</a>
+
+<h2><%=@user.username %>'s Garage</h2>
 
 <h3>Owned Bikes</h3>
 <a href="/bike/new">Add Bike</a>
@@ -13,7 +14,6 @@
   </p>
   <img src="<%= bike.image_url %>" alt="Bike pics">
     
-  <a href="/booking/new">View Bookings</a>
 <% end %>
 
 <h3>Rented Bikes</h3>
