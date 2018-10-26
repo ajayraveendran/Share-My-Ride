@@ -14,10 +14,13 @@
   <input name="model" type="text" value="<%= @bike.model%>">
   <input type="hidden" name="_method" value="put">
 
-  <label for="">Update LAMS approved status</label>
-  <input name="lams" type="text" value="<%= @bike.lams%>">
+  <label for="">Update LAMS status</label>
+    <select name="lams">
+      <option value="1">Lams approved</option>
+      <option value="0">Not Lams approved</option>
+    </select>
   <input type="hidden" name="_method" value="put">
-  
+
   <label for="">Update Image</label>
   <input name="image_url" type="text" value="<%= @bike.image_url%>">
   <input type="hidden" name="_method" value="put">
@@ -26,5 +29,5 @@
   <input name="daily_rate" type="text" value="<%= @bike.daily_rate%>">
   <input type="hidden" name="_method" value="put">
 
-  <button class="edit-bike-btn">Update</button>
+  <button class="update-bike-btn">Update</button>
 </form>

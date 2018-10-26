@@ -3,7 +3,13 @@
 <div class="grid-item">
   <img src="<%= @bike.image_url %>" alt="Bike pics">
   
-  <p>LAMS Approved: <%= @bike.lams %></p>
+  <p>LAMS Approved: 
+    <% if @bike.lams == "0" %>
+      No
+    <% else %>
+      Yes
+    <% end %>
+  </p>
   
   <p>Daily Rate: $<%= @bike.daily_rate %></p>
   

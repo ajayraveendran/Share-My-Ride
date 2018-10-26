@@ -6,6 +6,13 @@
         <p>
           <%= bike.year %> <%= bike.make %> <%= bike.model %>
         </p>
+        <p>LAMS Approved: 
+          <% if bike.lams == "0" %>
+            No
+          <% else %>
+            Yes
+          <% end %>
+        </p>
       <p><%= bike.owner.suburb %></p>
       <p>$ <%= bike.daily_rate.to_i%> per day</p>
     </a>

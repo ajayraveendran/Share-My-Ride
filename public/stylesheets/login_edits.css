@@ -1,6 +1,25 @@
 
-a{
+a, p{
   text-decoration: none;
+  color: #545454;
+  font-weight: 600;
+}
+
+h1{
+  text-align: center;
+  font-size: 1.8rem;
+  color: #545454;
+}
+
+h2{
+  text-align: center;
+  font-size: 1.5rem;
+  color: #545454;
+}
+
+h3{
+  text-align: center;
+  font-size: 1.2rem;
   color: #545454;
 }
 
@@ -45,25 +64,8 @@ input{
   width: 230px;
 }
 
-h1{
-  text-align: center;
-  font-size: 1.8rem;
-  color: #545454;
-}
 
-h2{
-  text-align: center;
-  font-size: 1.5rem;
-  color: #545454;
-}
-
-h3{
-  text-align: center;
-  font-size: 1.2rem;
-  color: #545454;
-}
-
-.login-login-btn, .signup-btn, .edit-user-btn, .delete-user-btn, .edit-bike-btn, .add-new-bike-btn, .new-booking-btn, .edit-booking-btn{
+.login-login-btn, .signup-btn, .edit-user-btn, .delete-user-btn, .edit-bike-btn, .add-new-bike-btn, .new-booking-btn, .edit-booking-btn, .update-bike-btn{
   padding: 12px 32px;
   background-color: #545454;
   color: white;
@@ -80,7 +82,7 @@ h3{
   justify-content: space-evenly;
 }
 
-.add-bike-btn, .edit-bike-btn, .view-bookings-btn, .delete-bike-btn, .book-bike-btn, .login-to-book-btn{
+.add-bike-btn, .view-bookings-btn, .delete-bike-btn, .book-bike-btn, .login-to-book-btn, .edit-booking-date-btn, .delete-booking-btn{
   padding: 12px 32px;
   background-color: #545454;
   color: white;
@@ -96,8 +98,16 @@ h3{
   margin: auto 647px;
 }
 
-.edit-bike-btn, .view-bookings-btn, .delete-bike-btn, .book-bike-btn, .login-to-book-btn{
+.edit-bike-btn{
+  margin: auto 600px;
+}
+
+.view-bookings-btn, .delete-bike-btn, .book-bike-btn, .login-to-book-btn{
   margin: 5px 600px;
+}
+
+.edit-booking-date-btn, .delete-booking-btn{
+  margin: 17px 600px;
 }
 
 .join-redirect, .login-redirect{
@@ -111,6 +121,7 @@ h3{
   display: grid;
   grid-template-columns: auto auto auto;
   padding: 10px;
+  margin: 10px auto;
 }
 
 .grid-item{
@@ -121,6 +132,7 @@ h3{
   color: #545454;
   transition: box-shadow 200ms ease-in;
   border-radius: 10px;
+  /* cursor: pointer; */
 }
 
 .grid-item:hover{
@@ -138,4 +150,7 @@ h3{
 
 .borrowed-bikes:hover{
   box-shadow: 0 2px 5px 0 gray;
+}
+.update-user-btn{
+  margin: 2px 663px;
 }
