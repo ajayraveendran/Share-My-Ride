@@ -22,7 +22,7 @@ A peer to peer motorbike sharing web application.
 * Added some extra features such as drop downs and if statements for LAMS entries.
 * Kept it simple.
 
-### Unfunushed business
+### Unfunished business
 * Add in more robust validations both @ client and server side.
 * Add search by bike functionality.
 * Use an API to expand on search to include location.
