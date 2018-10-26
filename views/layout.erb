@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Share my Ride</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link rel='stylesheet' href='/stylesheets/login_edits.css'>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 </head>
 <body class="layout">
@@ -14,11 +15,13 @@
       </a>
   
       <% if logged_in? %>
-        logged in as <%= current_user.username %><a href="/user/<%= current_user.id %>">Go to your profile</a>
-        <form action="/session" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <button class="logout-btn">logout</button>
-        </form>
+        <article class="user-access">
+          <a class="user-name" href="/user/<%= current_user.id %>"><%= current_user.username %></a>
+          <form class="logout-btn" action="/session" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button class="logout-btn">logout</button>
+          </form>
+        </article>
       <% else %>
         <article class="user-access">
           <a class="login-btn" href="/login">Login</a>

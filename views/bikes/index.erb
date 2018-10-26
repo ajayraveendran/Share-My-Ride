@@ -1,12 +1,13 @@
 <h1>Bikes available to rent</h1>
-
-<% @bikes.each do |bike|%>
-  <p>
-    <a href="/bike/<%= bike.id%>">
-      <%= bike.year %> <%= bike.make %> <%= bike.model %>
+<div class="grid-container">
+  <% @bikes.each do |bike|%>
+    <a class="grid-item" href="/bike/<%= bike.id%>">
+      <img src="<%= bike.image_url %>" alt="Bike pics">
+        <p>
+          <%= bike.year %> <%= bike.make %> <%= bike.model %>
+        </p>
+      <p><%= bike.owner.suburb %></p>
+      <p>$ <%= bike.daily_rate.to_i%> per day</p>
     </a>
-  </p>
-   <p><%= bike.owner.suburb %></p>
-  <img src="<%= bike.image_url %>" alt="Bike pics">
-
 <% end %>
+</div>

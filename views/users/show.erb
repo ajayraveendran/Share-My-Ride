@@ -2,33 +2,29 @@
 <a href="/user/<%= @user.id %>/edit">Update account</a>
 
 <h2><%=@user.username %>'s Garage</h2>
+<h2>Owned Bikes</h2>
 
-<h3>Owned Bikes</h3>
-<a href="/bike/new">Add Bike</a>
+<a class="add-bike-btn" href="/bike/new">Add Bike</a>
 
-<% @owned_bikes.each do |bike|%>
-  <p>
-    <a href="/bike/<%= bike.id%>">
-      <%= bike.year %> <%= bike.make %> <%= bike.model %>
+<div class="grid-container">
+  <% @owned_bikes.each do |bike|%>
+    <a class="grid-item" href="/bike/<%= bike.id%>">
+      <img src="<%= bike.image_url %>" alt="Bike pics">  
+      <p><%= bike.year %> <%= bike.make %> <%= bike.model %></p>
     </a>
-  </p>
-  <img src="<%= bike.image_url %>" alt="Bike pics">
-    
-<% end %>
+  <% end %>
+</div>
 
-<h3>Rented Bikes</h3>
+
+<h2>Borrowed Bikes</h2>
 
 <% @user_bookings.each do |booking|%>
   <% bike = Bike.find_by(id: booking.bike_id) %>
-  <p>Booked for <%= booking.booking_start.strftime('%d ' '%B ' '%y')%></p>
-  <p>
-    <a href="/booking/<%= booking.id %>">
-      <%= bike.year %> <%= bike.make %> <%= bike.model %>
-    </a>
-    <img src="<%= bike.image_url %>" alt="Bike pics">
-
-  </p>
+  <h3>Booked for <%= booking.booking_start.strftime('%d ' '%B ' '%y')%></h3>
+    <div class="borrowed-bikes">
+      <a href="/booking/<%= booking.id %>">
+        <img src="<%= bike.image_url %>" alt="Bike pics">
+        <p><%= bike.year %> <%= bike.make %> <%= bike.model %></p>
+      </a>
+    </div>
 <% end %>
-
-
-

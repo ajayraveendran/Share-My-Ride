@@ -5,8 +5,7 @@
 }
 
 body{
-  /* background-color: #F8F8F8; */
-  margin: 5px 0;
+  margin: 5px 5px;
 }
 
 header{
@@ -30,7 +29,7 @@ nav{
   width: 17%;
 }
 
-.login-btn, .join-btn{
+.login-btn, .join-btn, .user-name{
   margin: 0 20px;
   font-size: 1.2rem;
   text-decoration: none;
@@ -43,6 +42,18 @@ nav{
   background-color: #545454;
   color: white;
   border-radius: 10%;
+  font-weight: 700;
+}
+
+.logout-btn{
+  padding: 0 10px;
+  background-color: #545454;
+  color: white;
+  border-radius: 10%;
+  font-weight: 700;
+  border: none;
+  line-height: 70px;
+  cursor: pointer;
 }
 
 .home-option-buttons{
@@ -52,11 +63,20 @@ nav{
 }
 
 .home-borrow-btn{
-  margin: 50px 20px;
-  padding: 25px 80px;
+  margin: 20px 20px;
+  padding: 30px 90px;
   background-color: #545454;
   color: white;
-  border-radius: 32px;
+  border-radius: 12px;
   font-size: 1.2rem;
   text-decoration: none;
+  font-weight: 800;
+}
+
+img{
+  border-radius: 10px;
+}
+
+input, button{
+outline: none;
 }

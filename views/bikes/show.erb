@@ -1,26 +1,25 @@
-<h2><%=@owner.username %>'s <%= @bike.year %> <%= @bike.make %> <%= @bike.model %> </h2>
-
-<a href="/bike/<%= @bike.id %>/edit">Edit Bike details</a>
-
-<%= @bike.year %> <%= @bike.make %> <%= @bike.model %>
-
-<p>LAMS Approved: <%= @bike.lams %></p>
-
-<p>Daily Rate: $<%= @bike.daily_rate %></p>
-
-<img src="<%= @bike.image_url %>" alt="Bike pics">
-
-<% if current_user == nil %>
-  <a href="/login">Log in to book this Bike</a>
-<% elsif current_user.id == @owner.id %>
-  <a href="/bike/<%= @bike.id%>/booking">View Bookings</a>
-
-  <form action="/bike/<%= @bike.id%>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button>Delete Bike</button>
-  </form>
-  <a href="/user/<%= current_user.id %>">Back to Garage</a>
-<% else %>
-  <a href="/booking/bike/<%= @bike.id %>">Book this Bike</a>
-<% end %>
-
+<h1><%=@owner.username %>'s <%= @bike.year %> <%= @bike.make %> <%= @bike.model %> </h1>
+  
+<div class="grid-item">
+  <img src="<%= @bike.image_url %>" alt="Bike pics">
+  
+  <p>LAMS Approved: <%= @bike.lams %></p>
+  
+  <p>Daily Rate: $<%= @bike.daily_rate %></p>
+  
+  <div class="user-bike-btns">
+    <% if current_user == nil %>
+      <a class="login-to-book-btn" href="/login">Log in to book this Bike</a>
+    <% elsif current_user.id == @owner.id %>
+        <a class="view-bookings-btn" href="/bike/<%= @bike.id%>/booking">View Bookings</a>
+        <a class="edit-bike-btn" href="/bike/<%= @bike.id %>/edit">Edit Bike details</a>
+        <form action="/bike/<%= @bike.id%>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button class="delete-bike-btn">Delete Bike</button>
+        </form>
+        <a href="/user/<%= current_user.id %>">Back to Garage</a>
+    <% else %>
+      <a class="book-bike-btn" href="/booking/bike/<%= @bike.id %>">Book this Bike</a>
+    <% end %>
+  </div>
+</div>

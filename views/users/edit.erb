@@ -1,27 +1,29 @@
-<h2>Update Account Details</h2>
+<h1>Update Account Details</h1>
+<div class="edit-user-box">
 
-<form action="/user/<%= @user.id%>" method="post">
+  <form class="edit-user-form" action="/user/<%= @user.id%>" method="post">
 
-  <label for="">New name</label>
-  <input name="name" type="text" value="<%= @user.name%>">
-  <input type="hidden" name="_method" value="put">
+    <label for="">New name</label>
+    <input name="name" type="text" value="<%= @user.name%>">
+    <input type="hidden" name="_method" value="put">
 
-  <label for="">New username</label>
-  <input name="username" type="text" value="<%= @user.username%>">
-  <input type="hidden" name="_method" value="put">
+    <label for="">New username</label>
+    <input name="username" type="text" value="<%= @user.username%>">
+    <input type="hidden" name="_method" value="put">
 
-  <label for="">New suburb</label>
-  <input name="suburb" type="text" value="<%= @user.suburb%>">
-  <input type="hidden" name="_method" value="put">
+    <label for="">New suburb</label>
+    <input name="suburb" type="text" value="<%= @user.suburb%>">
+    <input type="hidden" name="_method" value="put">
 
-  <label for="">New Date of Birth</label>
-  <input name="dob" type="text" value="<%= @user.dob%>">
-  <input type="hidden" name="_method" value="put">
-  
-  <button>Update</button>
-</form>
+    <label for="">New Date of Birth</label>
+    <input name="dob" type="text" value="<%= @user.dob%>">
+    <input type="hidden" name="_method" value="put">
+    
+    <button class="edit-user-btn">Update</button>
+  </form>
+</div>
 
-<form action="/user/<%= @user.id%>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button>Delete Account</button>
-</form>
+  <form class="delete-user-form" action="/user/<%= @user.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button class="delete-user-btn">Delete Account</button>
+  </form>

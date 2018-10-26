@@ -1,4 +1,4 @@
-<h2>Rentals for your <%= @bike.year %> <%= @bike.make %> <%= @bike.model %></h2>
+<h1>Rentals for your <%= @bike.year %> <%= @bike.make %> <%= @bike.model %></h1>
 
 <% @bookings.each do |booking|%>
   <% renter = User.find(booking.renter_id)%>

@@ -15,7 +15,10 @@ CREATE TABLE bikes(
   owner_id INTEGER, 
   make VARCHAR(100),
   model VARCHAR(100),
-  lams BIT NOT NULL,
+  lams BIT,
+  image_url VARCHAR(400),
+  year VARCHAR(4),
+  daily_rate NUMERIC(7,2),
   FOREIGN KEY (owner_id) REFERENCES users (id) ON DELETE CASCADE
 );
 

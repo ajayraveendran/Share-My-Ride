@@ -1,0 +1,141 @@
+
+a{
+  text-decoration: none;
+  color: #545454;
+}
+
+.login-box, .new-member-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 650px;
+  margin: 20px 600px;
+}
+
+.login-form, .signup-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.edit-user-form, .edit-bike-form, .add-new-bike-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 450px;
+  margin: 20px 600px;
+}
+
+.new-booking-form, .edit-booking-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 250px;
+  margin: 20px 600px;
+}
+
+.delete-user-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 200px;
+  margin: 20px 600px;
+}
+input{
+  width: 230px;
+}
+
+h1{
+  text-align: center;
+  font-size: 1.8rem;
+  color: #545454;
+}
+
+h2{
+  text-align: center;
+  font-size: 1.5rem;
+  color: #545454;
+}
+
+h3{
+  text-align: center;
+  font-size: 1.2rem;
+  color: #545454;
+}
+
+.login-login-btn, .signup-btn, .edit-user-btn, .delete-user-btn, .edit-bike-btn, .add-new-bike-btn, .new-booking-btn, .edit-booking-btn{
+  padding: 12px 32px;
+  background-color: #545454;
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.user-bike-btns{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.add-bike-btn, .edit-bike-btn, .view-bookings-btn, .delete-bike-btn, .book-bike-btn, .login-to-book-btn{
+  padding: 12px 32px;
+  background-color: #545454;
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.add-bike-btn{
+  margin: auto 647px;
+}
+
+.edit-bike-btn, .view-bookings-btn, .delete-bike-btn, .book-bike-btn, .login-to-book-btn{
+  margin: 5px 600px;
+}
+
+.join-redirect, .login-redirect{
+  font-size: 1rem;
+  text-decoration: none;
+  color: #545454;
+  text-align: center;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.grid-item{
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+  color: #545454;
+  transition: box-shadow 200ms ease-in;
+  border-radius: 10px;
+}
+
+.grid-item:hover{
+  box-shadow: 0 2px 5px 0 gray;
+}
+
+.borrowed-bikes{
+  text-align: center;
+  margin: 5px 400px;
+  padding: 5px;
+  transition: box-shadow 200ms ease-in;
+  border-radius: 10px;
+}
+
+
+.borrowed-bikes:hover{
+  box-shadow: 0 2px 5px 0 gray;
+}

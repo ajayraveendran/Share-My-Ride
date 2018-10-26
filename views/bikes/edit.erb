@@ -1,6 +1,6 @@
-<h2>Update Bike Details</h2>
+<h1>Update Bike Details</h1>
 
-<form action="/bike/<%= @bike.id%>" method="post">
+<form class="edit-bike-form" action="/bike/<%= @bike.id%>" method="post">
 
   <label for="">Update Year of manufacture</label>
   <input name="year" type="text" value="<%= @bike.year%>">
@@ -26,5 +26,5 @@
   <input name="daily_rate" type="text" value="<%= @bike.daily_rate%>">
   <input type="hidden" name="_method" value="put">
 
-  <button>Update</button>
+  <button class="edit-bike-btn">Update</button>
 </form>
